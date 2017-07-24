@@ -1,0 +1,40 @@
+<apex:page controller="AngularCtrl" showHeader="false" sidebar="false" standardStylesheets="false"
+    docType="html-5.0" applyBodyTag="false">
+
+    <head>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"/>
+        <link rel="stylesheet" href="{!$Resource.Angular}/styles/style.css" />
+    </head>
+
+    <body ng-app="myApp" ng-controller="mainController">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Angular Example</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><i class="fa fa-home"></i> All Posts</a></li>
+                    <li><a href="#create"><i class="fa fa-plus"></i> Post</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="main" class="container">
+            <div ng-view="ng-view"></div>
+        </div>
+    </body>
+    <script>
+        var _ResourceUrl = '{!$Resource.Angular}';
+        var _RemoteActions = {
+            getFeed: "{!$RemoteAction.AngularCtrl.getFeed}",
+            createPost: "{!$RemoteAction.AngularCtrl.createPost}"
+        };
+
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="{!$Resource.Angular}/scripts/script.js"></script>
+
+</apex:page>
